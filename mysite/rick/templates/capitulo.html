@@ -1,0 +1,63 @@
+<head>
+    <title>Rick and Morty</title>
+  
+   {% load bootstrap4 %}
+   {% bootstrap_css %}
+   <style>
+    body, html {
+        height: 100%;
+    }
+    .bg {
+        opacity:0.5;
+        background-image: url("https://www.xtrafondos.com/wallpapers/rick-y-morty-temporada-4-4114.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
+  </head>
+  
+  <body>
+    <div class>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Rick and Morty</a>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar">
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                </div>
+            </div>
+        </nav>
+        </br>
+        <h1 class="text-center">Titulo del capítulo: {{context.name}}</h1>
+        <h1 class="text-center">Se estrenó el día: {{context.air_date}}</h1>
+        <h1 class="text-center">Código: {{context.episode}}</h1>
+        </br>   
+        <h1 class="text-center">Listado de personajes que aparecen en este capítulo</h1>
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for data in personajes %}
+                    <tr>
+                        <td><a href = "../../{{data.id}}/personaje">{{data.name}}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    </br>
+    {% bootstrap_javascript jquery='full' %}
+  </body>
+  
+  
+  
