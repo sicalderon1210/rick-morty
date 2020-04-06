@@ -11,13 +11,13 @@ def index(request):
         if data['info']['next']:
             data["results"] += buscar_info(data['info']['next'])
         return data["results"]
-    URL = "https://rickandmortyapi.com/api/episode"
+    URL = "https://integracion-rick-morty-api.herokuapp.com/api/episode"
     aux = buscar_info(URL)
     context = {"info": aux}
     return render(request, 'index.html', context)
 
 def personaje(request, personaje_id):
-    url = "https://rickandmortyapi.com/api/character/" + str(personaje_id)
+    url = "https://integracion-rick-morty-api.herokuapp.com/api/character/" + str(personaje_id)
     PARAMS = {}
     r = requests.get(url, params = PARAMS)
     context = r.json()
@@ -44,7 +44,7 @@ def personaje(request, personaje_id):
     return render(request, 'personaje.html', enviar)
 
 def lugar(request, lugar_id):
-    url = "https://rickandmortyapi.com/api/location/" + str(lugar_id)
+    url = "https://integracion-rick-morty-api.herokuapp.com/api/location/" + str(lugar_id)
     PARAMS = {}
     r = requests.get(url, params = PARAMS)
     context = r.json()
@@ -60,7 +60,7 @@ def lugar(request, lugar_id):
     return render(request, 'lugar.html', enviar)
 
 def capitulo(request, capitulo_id):
-    url = "https://rickandmortyapi.com/api/episode/" + str(capitulo_id)
+    url = "https://integracion-rick-morty-api.herokuapp.com/api/episode/" + str(capitulo_id)
     PARAMS = {}
     r = requests.get(url, params = PARAMS)
     context = r.json()
